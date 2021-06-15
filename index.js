@@ -35,8 +35,8 @@ hint - you should be looking at the stage key inside of the objects
 
 function getFinals(data) {
   /* code here */
-  const filtered = data.filter(function (item) {
-    return item.Stage === "Final";
+  const filtered = data.filter(function (obj) {
+    return obj.Stage === "Final";
   });
   return filtered;
 }
@@ -48,10 +48,14 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(array) {
-  /*code  */
+function getYears(myArray, getFinalsCB) {
+  /*code*/
+  const newArray = getFinalsCB(myArray);
+  return newArray.map(function (item) {
+    return item.Year;
+  });
 }
-getYears(getFinals);
+getYears(fifaData, getFinals);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function getWinners to do the following:  
